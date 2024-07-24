@@ -70,4 +70,5 @@ def apply_ica_to_image(image_path, num_components=6):
     ica = FastICA(n_components=num_components, random_state=0)
     transformed_image = ica.fit_transform(image_2d)
     # Reshape back into a 3D image for visualization or further processing
-    transformed_image_3d =
+    transformed_image_3d = transformed_image.reshape((num_rows, num_cols, num_components))
+    return transformed_image_3d
